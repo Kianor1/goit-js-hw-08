@@ -63,3 +63,65 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+function createGalleryItems(images) {
+  const gallery = document.querySelector('.gallery');
+
+  const items = images.map(image => {
+    const listItem = document.createElement('li');
+    listItem.classList.add('gallery-item');
+
+    const link = document.createElement('a');
+    link.classList.add('gallery-link');
+    link.href = image.original;
+
+    const img = document.createElement('img');
+    img.classList.add('gallery-image');
+    img.src = image.preview;
+    img.dataset.source = image.original;
+    img.alt = image.description;
+
+    link.appendChild(img);
+    listItem.appendChild(link);
+
+    return listItem;
+  });
+
+  gallery.append(...items);
+}
+
+createGalleryItems(images);
+
+document.querySelector('.gallery').addEventListener('click', openModal);
+
+function openModal(event) {
+  event.preventDefault();
+
+  const target = event.target;
+
+  if (target.nodeName !== 'IMG') return;
+
+  const largeImageUrl = target.dataset.source;
+}
+
+function openModal(event) {
+  event.preventDefault();
+
+  const target = event.target;
+
+  if (target.nodeName !== 'IMG') return;
+
+  const largeImageUrl = target.dataset.source;
+  const instance = basicLightbox.create(
+    `<img src="${largeImageUrl}" alt="Large Image">`,
+  );
+  instance.show();
+}
+
+document.addEventListener('keydown', closeOnEscape);
+
+function closeOnEscape(event) {
+  if (event.key === 'Escape') {
+    instance.close();
+  }
+}

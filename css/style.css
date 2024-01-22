@@ -1,6 +1,24 @@
 body {
   width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.conteiner {
+  width: 1440px;
+}
+
+.gallery {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 24px 156px;
+  list-style: none;
+}
+
+.gallery-image {
+  width: 360px;
+  height: 200px;
 }
