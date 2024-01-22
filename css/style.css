@@ -5,11 +5,13 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .conteiner {
   width: 1440px;
 }
 
 .gallery {
+  width: 100%;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -21,4 +23,9 @@ body {
 .gallery-image {
   width: 360px;
   height: 200px;
+}
+
+.gallery-image:hover {
+  width: 376px;
+  height: 208px;
 }

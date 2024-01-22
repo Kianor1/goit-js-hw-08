@@ -116,12 +116,20 @@ function openModal(event) {
     `<img src="${largeImageUrl}" alt="Large Image">`,
   );
   instance.show();
-}
 
-document.addEventListener('keydown', closeOnEscape);
+  document.addEventListener('keydown', closeOnEscape);
 
-function closeOnEscape(event) {
-  if (event.key === 'Escape') {
-    instance.close();
+  function closeOnEscape(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+
+      document.removeEventListener('keydown', onKeyPress);
+    }
+
+    function closeOnEscape(event) {
+      if (event.key === 'Escape') {
+        basicLightbox.close();
+      }
+    }
   }
 }
